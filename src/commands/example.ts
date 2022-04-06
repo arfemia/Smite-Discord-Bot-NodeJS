@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
-import { COMMAND_PREFIX } from "../config/prefixes";
 import { Command } from "../interfaces/Command";
 
 export const command: Command = {
