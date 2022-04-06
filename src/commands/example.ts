@@ -18,7 +18,7 @@ export const command: Command = {
         await interaction.deferReply();
 
         const { user } = interaction;
-        const god = interaction.options.getString("message", true);
+        const god = interaction.options.getString("god", true);
 
         if (god.toLowerCase() === 'random') {
             const randomIndex = Math.floor(Math.random() * all_gods.length);
