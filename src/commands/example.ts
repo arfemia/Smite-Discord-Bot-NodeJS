@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { MessageEmbed } from "discord.js";
+import { ColorResolvable, MessageEmbed } from "discord.js";
 import { all_gods } from "../config/smite/gods";
 import { Command } from "../interfaces/Command";
 
@@ -31,6 +31,8 @@ export const command: Command = {
                 name: user.tag,
                 iconURL: user.displayAvatarURL(),
             });
+            embed.setThumbnail(randomGod[3]);
+            embed.setColor(randomGod[4] as ColorResolvable)
             embed.addField("God Type", randomGod[1], true);
             embed.addField("Pantheon", randomGod[2], true);
             embed.setFooter({
