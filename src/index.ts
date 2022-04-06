@@ -8,7 +8,7 @@ import { validateEnv } from './utils/validateEnv';
 // wrap in called async function to enable top level await
 (async () => {
 
-	console.log(process.env.BOT_TOKEN)
+	
 	// Validate env variables - console warned within function
 	if (!validateEnv()) return;
 
