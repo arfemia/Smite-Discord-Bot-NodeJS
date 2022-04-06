@@ -1,0 +1,7 @@
+
+export const assassin_gods = ["Arachne", "Awilix", "Bakasura", "Bastet", "Camazotz", "Da Ji", "Fenrir", "Hun Batz", "Fenrir", "Loki", "Mercury", "Ne Zha", "Nemesis", "Pele", "Ratatoskr", "Ravana", "Serqet", "Set", "Susano", "Thanatos", "Thor", "Tsukuyomi"]
+export const guardian_gods = ["Ares", "Artio", "Athena", "Bacchus", "Cabrakan", "Cerberus", "Cthulhu", "Fafnir", "Ganesha", "Geb", "Jormungandr", "Kephri", "Kumbhakarna", "Kuzenbo", "Sobek", "Sylvanus", "Terra", "Xing Tian", "Yemoja", "Ymir"]
+export const hunter_gods = ["Ah Muzen Cab", "Anhur", "Apollo", "Artemis", "Cernunnos", "Chernobog", "Chiron", "Cupid", "Danzaburou", "Hachiman", "Heimdallr", "Hou Yi", "Izanami", "Jing Wei", "Medusa", "Neith", "Rama", "Skadi", "Ullr", "Xbalanque"]
+export const mage_gods = ["Agni", "Ah Puch", "Anubis", "Ao Kuang", "Aphrodite", "Baba Yaga", "Baron Samedi", "Chang'e", "Chronos", "Discordia", "Freya", "Hades", "He Bo", "Hel", "Hera", "Isis", "Janus", "Kukulkan", "Merlin", "Nox", "Nu Wa", "Olorun", "Persephone", "Poseidon", "Ra", "Raijin", "Scylla", "Sol", "The Morrigan", "Thoth", "Tiamat", "Vulcan", "Zeus", "Zhong Kui"]
+export const warrior_gods = ["Achilles", "Amaterasu", "Bellona", "Chaac", "Cu Chulainn", "Erlang Shen", "Gilgamesh", "Guan Yu", "Hercules", "Horus", "King Arthur", "Mulan", "Nike", "Odin", "Osiris", "Sun Wukong", "Tyr", "Vamana"]
+export const all_gods = [...assassin_gods, ...guardian_gods, ...hunter_gods, ...mage_gods, ...warrior_gods];
