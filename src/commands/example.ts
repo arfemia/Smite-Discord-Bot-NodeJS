@@ -5,7 +5,7 @@ import { Command } from "../interfaces/Command";
 
 export const command: Command = {
     data: new SlashCommandBuilder()
-        .setName(COMMAND_PREFIX + '100')
+        .setName('100')
         .setDescription('test')
         .addStringOption((option) =>
             option

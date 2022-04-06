@@ -8,12 +8,12 @@ import { validateEnv } from './utils/validateEnv';
 // wrap in called async function to enable top level await
 (async () => {
 
-	
+	//
 	// Validate env variables - console warned within function
 	if (!validateEnv()) return;
-
+	console.log('ENV Variables loaded.')
 	const BOT = new Client({ intents: IntentOptions })
-
+	console.log('Starting Discord Bot Client')
 
 
 	BOT.on("ready", () => onReady(BOT));
@@ -28,6 +28,8 @@ import { validateEnv } from './utils/validateEnv';
 
 
 	await BOT.login(process.env.BOT_TOKEN);
+
+
 
 
 
