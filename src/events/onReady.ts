@@ -6,8 +6,8 @@ import { CommandList } from "../_CommandList";
 export const onReady = async (BOT: Client) => {
 
     try {
-
-        const rest = new REST({ version: "9" }).setToken(
+        console.log()
+        const rest = new REST({ version: "9",  }).setToken(
             process.env.BOT_TOKEN as string
         );
 
@@ -25,7 +25,7 @@ export const onReady = async (BOT: Client) => {
 
         console.log("Discord ready!");
     } catch (e) {
-        console.log(e)
+        console.warn(e)
     }
 
 };
