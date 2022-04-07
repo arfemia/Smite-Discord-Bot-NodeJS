@@ -34,7 +34,7 @@ export const command: Command = {
         else {
             let godFound = false;
             for (let i = 0; i < gods.length; i++) {
-                if (god === gods[i].Name.toLowerCase()) {
+                if (god === gods[i].Name.toLowerCase() || gods[i].Title.toLowerCase().includes(god)) {
                     godFound = true;    
                     const embed = embedGod(gods[i], interaction);
                     
