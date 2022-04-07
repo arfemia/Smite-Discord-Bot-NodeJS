@@ -3,7 +3,7 @@ import { SmiteGod } from "./embedGod";
 
 export default function embedLore(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
 
-    const lore = String(god.Lore).replace(/\\n/, '\n')
+    const lore = String(god.Lore).replace(/\\n/g, '\n')
     
     const embed = new MessageEmbed()
         .setTitle(`Lore --- ${god.Name} `)
