@@ -1,6 +1,15 @@
 import { CacheType, ColorResolvable, CommandInteraction, MessageEmbed } from "discord.js";
 
-export default function embedGod(god: {Name: string, Title: string, godIcon_URL: string, Roles: string, Pantheon: string}, interaction: CommandInteraction<CacheType>) {
+type SmiteGod = {
+    Name: string,
+    Title: string,
+    godIcon_URL: string,
+    Roles: string, // Warrior, Guardian etc.
+    Pantheon: string,
+    Type: string //Melee, Physical
+}
+
+export default function embedGod(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
 
     const { user } = interaction;
 
@@ -13,7 +22,7 @@ export default function embedGod(god: {Name: string, Title: string, godIcon_URL:
         iconURL: user.displayAvatarURL(),
     });
     embed.setThumbnail(god.godIcon_URL);
-   
+    embed.addField("", god.Type)
     embed.addField("God Type", god.Roles, true);
     embed.addField("Pantheon", god.Pantheon, true);
     embed.setFooter({
