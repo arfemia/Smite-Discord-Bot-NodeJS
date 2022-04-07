@@ -3,7 +3,8 @@ import { SmiteGod } from "./embedGod";
 
 export default function embedLore(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
 
-    const lore = String(god.Lore)
+    const lore = String(god.Lore).replace('\n\n', '      ')
+    
     const embed = new MessageEmbed()
         .setTitle(`Lore --- ${god.Name} `)
     embed.setThumbnail(god.godIcon_URL);
