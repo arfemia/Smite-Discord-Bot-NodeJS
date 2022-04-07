@@ -3,6 +3,7 @@ import { ColorResolvable, MessageEmbed } from "discord.js";
 import gods from "../config/smite/gods.json";
 import { Command } from "../interfaces/Command";
 import embedGod from "../utils/embedGod";
+import embedLore from "../utils/embedLore";
 import getRandomGod from "../utils/getRandomGod";
 
 
@@ -22,30 +23,33 @@ export const command: Command = {
         const { user } = interaction;
         const god = interaction.options.getString("god", true).toLowerCase();
 
-        
+
 
         if (god === 'random') {
-            
-            const randomGod = getRandomGod()
-            const embed = embedGod(randomGod, interaction);
 
-            await interaction.editReply({ embeds: [embed] });
+            const god = getRandomGod()
+            const embed = embedGod(god, interaction);
+            const lore = embedLore(god, interaction)
+            await interaction.editReply({ embeds: [embed, lore], })
         }
         else {
             let godFound = false;
             for (let i = 0; i < gods.length; i++) {
                 if (god === gods[i].Name.toLowerCase() || gods[i].Title.toLowerCase().includes(god)) {
-                    godFound = true;    
-                    const embed = embedGod(gods[i], interaction);
-                    
-                    await interaction.editReply({ embeds: [embed] });
+                    godFound = true;
+                    const god = gods[i]
+                    const embed = embedGod(god, interaction);
+                    const lore = embedLore(god, interaction)
+                    await interaction.editReply({ embeds: [embed, lore], })
                     break;
                 }
             }
 
             if (!godFound) {
-                const embed = embedGod(getRandomGod(), interaction);
-                await interaction.editReply({embeds: [embed],})
+                const god = getRandomGod()
+                const embed = embedGod(god, interaction);
+                const lore = embedLore(god, interaction)
+                await interaction.editReply({ embeds: [embed, lore], })
             }
         }
     }
