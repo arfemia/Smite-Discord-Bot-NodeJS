@@ -14,14 +14,14 @@ export const command: Command = {
         .addStringOption((option) =>
             option
                 .setName("god")
-                .setDescription("God name or title (i.e. 'Ares' or 'god of war')")
-                .setRequired(true)
+                .setDescription("God name or title (i.e. 'Ares' or 'god of war' - random if blank)")
+                .setRequired(false)
         ),
     run: async (interaction) => {
         await interaction.deferReply();
 
         const { user } = interaction;
-        const god = interaction.options.getString("god", true).toLowerCase();
+        const god = (interaction.options.getString("god", false)|| 'random').toLowerCase();
 
 
 

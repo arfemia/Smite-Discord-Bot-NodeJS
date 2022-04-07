@@ -14,9 +14,9 @@ export const randomGod: Command = {
         await interaction.deferReply();
 
         const god = getRandomGod()
-        const embed = embedGod(god, interaction);
-        const lore = embedLore(god, interaction)
-        await interaction.editReply({embeds: [embed, lore]})
+        const embed = embedGod(god, interaction, true);
+       
+        await interaction.editReply({embeds: [embed,]})
         
         
     }
