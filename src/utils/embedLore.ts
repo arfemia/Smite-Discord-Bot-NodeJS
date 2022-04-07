@@ -5,7 +5,7 @@ export default function embedLore(god: SmiteGod, interaction: CommandInteraction
 
     const lore = String(god.Lore)
     const embed = new MessageEmbed()
-        .setTitle(`${god.Name} Lore`)
+        .setTitle(`Lore --- ${god.Name} `)
     embed.setThumbnail(god.godIcon_URL);
     if (god.Lore.length > 4090) {
         embed.setDescription(lore.substring(0, 4090) + '...')
