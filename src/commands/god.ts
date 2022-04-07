@@ -36,7 +36,7 @@ export const command: Command = {
             for (let i = 0; i < all_gods.length; i++) {
                 if (god === all_gods[i][0].toLowerCase()) {
                     godFound = true;    
-                    const embed = embedGod(all_gods[i], interaction);
+                    const embed = embedGod(getRandomGod(), interaction);
                     
                     await interaction.editReply({ embeds: [embed] });
                     break;
