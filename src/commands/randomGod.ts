@@ -1,8 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { ColorResolvable, MessageEmbed } from "discord.js";
-import { all_gods } from "../config/smite/gods";
 import { Command } from "../interfaces/Command";
 import embedGod from "../utils/embedGod";
+import embedLore from "../utils/embedLore";
 import getRandomGod from "../utils/getRandomGod";
 
 
@@ -14,8 +13,10 @@ export const randomGod: Command = {
     run: async (interaction) => {
         await interaction.deferReply();
 
-        const embed = embedGod(getRandomGod(), interaction);
-        await interaction.editReply({embeds: [embed]})
+        const god = getRandomGod()
+        const embed = embedGod(god, interaction);
+        const lore = embedLore(god, interaction)
+        await interaction.editReply({embeds: [embed, lore]})
         
         
     }
