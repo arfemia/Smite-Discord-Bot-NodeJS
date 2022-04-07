@@ -7,7 +7,8 @@ type SmiteGod = {
     godCard_URL: string,
     Roles: string, // Warrior, Guardian etc.
     Pantheon: string,
-    Type: string //Melee, Physical
+    Type: string, //Melee, Physical
+    Lore: string, // long text
 }
 
 export default function embedGod(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
@@ -22,10 +23,12 @@ export default function embedGod(god: SmiteGod, interaction: CommandInteraction<
         name: user.tag,
         iconURL: user.displayAvatarURL(),
     });
+    
     embed.setThumbnail(god.godIcon_URL);
     embed.addField("Type", god.Type)
     embed.addField("Role", god.Roles, true);
     embed.addField("Pantheon", god.Pantheon, true);
+    embed.addField("Lore", god.Lore)
     embed.setFooter({
         text:
             "Request sent: " +

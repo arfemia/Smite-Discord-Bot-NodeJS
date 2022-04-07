@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { ColorResolvable, MessageEmbed } from "discord.js";
-import { all_gods } from "../config/smite/gods";
+import gods from "../config/smite/gods.json";
 import { Command } from "../interfaces/Command";
 import embedGod from "../utils/embedGod";
 import getRandomGod from "../utils/getRandomGod";
@@ -33,10 +33,10 @@ export const command: Command = {
         }
         else {
             let godFound = false;
-            for (let i = 0; i < all_gods.length; i++) {
-                if (god === all_gods[i][0].toLowerCase()) {
+            for (let i = 0; i < gods.length; i++) {
+                if (god === gods[i].Name.toLowerCase() || gods[i].Title.toLowerCase().includes(god)) {
                     godFound = true;    
-                    const embed = embedGod(getRandomGod(), interaction);
+                    const embed = embedGod(gods[i], interaction);
                     
                     await interaction.editReply({ embeds: [embed] });
                     break;
