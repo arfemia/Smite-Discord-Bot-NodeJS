@@ -1,6 +1,6 @@
 import { CacheType, ColorResolvable, CommandInteraction, MessageEmbed } from "discord.js";
 
-type SmiteGod = {
+export type SmiteGod = {
     Name: string,
     Title: string,
     godIcon_URL: string,
