@@ -11,12 +11,12 @@ export type SmiteGod = {
     Lore: string, // long text
 }
 
-export default function embedGod(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
+export default function embedGod(god: SmiteGod, interaction: CommandInteraction<CacheType>, random?: boolean) {
 
     const { user } = interaction;
 
     const embed = new MessageEmbed()
-        .setTitle(god.Name);
+        .setTitle(`${random ? 'Random God: ' : ''} ${god.Name}`);
     embed.setDescription(god.Title)
     embed.setImage(god.godCard_URL)
     embed.setAuthor({
@@ -40,7 +40,7 @@ export default function embedGod(god: SmiteGod, interaction: CommandInteraction<
             embed.setColor(0x198DFB)
             break;
         case 'Assassin':
-            embed.setColor(0x8B19FB)
+            embed.setColor(0xffcc00)
             break;
         case 'Warrior':
             embed.setColor(0xFF5733)

@@ -7,49 +7,49 @@ import embedLore from "../utils/embedLore";
 import getRandomGod from "../utils/getRandomGod";
 
 
-export const command: Command = {
+export const lore: Command = {
     data: new SlashCommandBuilder()
-        .setName('god')
-        .setDescription('Displays Basic Smite God Info')
+        .setName('lore')
+        .setDescription('Displays a smite god`s lore.')
         .addStringOption((option) =>
             option
                 .setName("god")
-                .setDescription("God name or title (i.e. 'Ares' or 'god of war')")
-                .setRequired(true)
+                .setDescription("god name or blank for random")
+                .setRequired(false)
         ),
     run: async (interaction) => {
         await interaction.deferReply();
 
-        const { user } = interaction;
-        const god = interaction.options.getString("god", true).toLowerCase();
+        
+        const god = (interaction.options.getString("god", false) || 'random').toLowerCase() 
 
 
 
         if (god === 'random') {
 
             const god = getRandomGod()
-            const embed = embedGod(god, interaction, true);
            
-            await interaction.editReply({ embeds: [embed],})
+            const lore = embedLore(god, interaction, true)
+            await interaction.editReply({ embeds: [ lore], })
         }
         else {
             let godFound = false;
             for (let i = 0; i < gods.length; i++) {
-                if (gods[i].Name.toLowerCase().includes(god) || gods[i].Title.toLowerCase().includes(god)) {
+                if (god === gods[i].Name.toLowerCase() || gods[i].Title.toLowerCase().includes(god)) {
                     godFound = true;
                     const god = gods[i]
-                    const embed = embedGod(god, interaction);
                     
-                    await interaction.editReply({ embeds: [embed], })
+                    const lore = embedLore(god, interaction)
+                    await interaction.editReply({ embeds: [ lore], })
                     break;
                 }
             }
 
             if (!godFound) {
                 const god = getRandomGod()
-                const embed = embedGod(god, interaction, true);
-            
-                await interaction.editReply({ embeds: [embed], })
+           
+                const lore = embedLore(god, interaction, true)
+                await interaction.editReply({ embeds: [ lore], })
             }
         }
     }

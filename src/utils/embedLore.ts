@@ -1,12 +1,12 @@
 import { CacheType, CommandInteraction, MessageEmbed } from "discord.js";
 import { SmiteGod } from "./embedGod";
 
-export default function embedLore(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
+export default function embedLore(god: SmiteGod, interaction: CommandInteraction<CacheType>, random?: boolean) {
 
     const lore = String(god.Lore).replace(/\\n/g, '\n')
     
     const embed = new MessageEmbed()
-        .setTitle(`Lore --- ${god.Name} `)
+        .setTitle(`${random ? 'Random ' : ''}Lore --- ${god.Name} `)
     embed.setThumbnail(god.godIcon_URL);
     if (god.Lore.length > 4090) {
         embed.setDescription(lore.substring(0, 4090) + '...')
