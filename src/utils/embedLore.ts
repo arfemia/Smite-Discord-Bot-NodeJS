@@ -3,15 +3,16 @@ import { SmiteGod } from "./embedGod";
 
 export default function embedLore(god: SmiteGod, interaction: CommandInteraction<CacheType>) {
 
+    const lore = String(god.Lore)
     const embed = new MessageEmbed()
-    embed.setTitle(`${god.Name} Lore`)
+        .setTitle(`Lore --- ${god.Name} `)
     embed.setThumbnail(god.godIcon_URL);
     if (god.Lore.length > 4090) {
-        embed.setDescription(god.Lore.substring(0, 4090) + '...')
-        embed.setFooter({ text: god.Lore.substring(4091, god.Lore.length > 4090 + 2048 ? 4090 + 2048 : god.Lore.length) })
+        embed.setDescription(lore.substring(0, 4090) + '...')
+        embed.setFooter({ text: lore.substring(4091, lore.length > 4090 + 2048 ? 4090 + 2048 : lore.length) })
     }
     else {
-        embed.setDescription(god.Lore)
+        embed.setDescription(lore)
     }
 
     switch (god.Roles) {
