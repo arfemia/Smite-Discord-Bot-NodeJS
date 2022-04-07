@@ -45,7 +45,7 @@ export const command: Command = {
 
             if (!godFound) {
                 const embed = embedGod(getRandomGod(), interaction);
-                await interaction.editReply({embeds: [embed]})
+                await interaction.editReply({embeds: [embed],})
             }
         }
     }

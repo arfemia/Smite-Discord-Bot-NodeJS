@@ -25,10 +25,10 @@ export default function embedGod(god: SmiteGod, interaction: CommandInteraction<
     });
     
     embed.setThumbnail(god.godIcon_URL);
-    embed.addField("Type", god.Type)
+    embed.addField("Type", god.Type, true)
     embed.addField("Role", god.Roles, true);
     embed.addField("Pantheon", god.Pantheon, true);
-    embed.addField("Lore", god.Lore)
+  
     embed.setFooter({
         text:
             "Request sent: " +
