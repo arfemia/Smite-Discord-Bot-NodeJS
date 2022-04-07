@@ -1,5 +1,5 @@
-import { command } from "./commands/example";
-import { randomGod } from "./commands/randomGod";
+import commands from "./commands";
 import { Command } from "./interfaces/Command";
 
-export const CommandList: Command[] = [command, randomGod];
+
+export const CommandList: Command[] = commands;
