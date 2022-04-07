@@ -35,7 +35,7 @@ export const lore: Command = {
         else {
             let godFound = false;
             for (let i = 0; i < gods.length; i++) {
-                if (god === gods[i].Name.toLowerCase() || gods[i].Title.toLowerCase().includes(god)) {
+                if (gods[i].Name.toLowerCase().includes(god) || gods[i].Title.toLowerCase().includes(god)) {
                     godFound = true;
                     const god = gods[i]
                     
