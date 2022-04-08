@@ -1,5 +1,5 @@
 import commands from "./commands";
-import { ButtonCommand } from "./interfaces/ButtonCommand";
+//import { ButtonCommand } from "./interfaces/ButtonCommand";
 import { Command } from "./interfaces/Command";
 //import buttonCommands from './buttonCommands'
 
