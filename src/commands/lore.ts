@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 import gods from "../config/smite/gods.json";
 import { Command } from "../interfaces/Command";
 import embedLore from "../utils/embeds/embedLore";
-import getRandomGod from "../utils/getRandomGod";
+import getRandomGod from "../utils/smite/getRandomGod";
 
 
 export const lore: Command = {

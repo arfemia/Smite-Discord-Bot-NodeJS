@@ -19,16 +19,16 @@ try {
 
     // connect to HiRez API
     console.log('Connecting to HiRez API...')
-    // const hiRezAPI = new Hirez({
-    // 	
-    // });
+    const hiRezAPI = new Hirez({
+      devId: 4270,
+      authKey: "FBC3AAC847C44C4E94D6621293692EF4"
+    });
 
-    // // const res = await hiRezAPI.smite('pc')
-    // const smiteAPI = hiRezAPI.smite('pc');
-    // const x = await smiteAPI.init()
-    // const y = await x.getGods()
+    // const smiteAPIRef = hiRezAPI.smite('pc');
+    // const smiteAPISession = await smiteAPIRef.init()
+    // const y = await smiteAPISession.getItems()
     // console.log('in main: ', y)
-    // await fs.writeFile('public/gods.json', JSON.stringify(y), (err:any) => {if (err){console.warn(err); return;}})
+    // await fs.writeFile('public/gods.json', JSON.stringify(y), (err: any) => { if (err) { console.warn(err); return; } })
     // // try {
 
 

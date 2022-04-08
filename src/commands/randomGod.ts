@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { Command } from "../interfaces/Command";
 import embedGod from "../utils/embeds/embedGod";
-import getRandomGod from "../utils/getRandomGod";
+import getRandomGod from "../utils/smite/getRandomGod";
 
 
 export const randomGod: Command = {

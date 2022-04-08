@@ -87,6 +87,19 @@ class Smite {
       })
     })
   }
+  async getItems() {
+    console.log('in get items: ', this)
+    let url = util.genUrl(this.smiteUrl, 'getitems', this.devId, this.authKey, this.session.id) + '/1'
+    return await new Promise(function (resolve, reject) {
+      request(url, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+          resolve(JSON.parse(body))
+        } else {
+          reject(error)
+        }
+      })
+    })
+  }
 
   getGodSkins(godId) {
     let url = util.genUrl(this.smiteUrl, 'getgodskins', this.devId, this.authKey, this.session.id) + '/' + godId + '/1'
@@ -114,18 +127,7 @@ class Smite {
     })
   }
 
-  getItems() {
-    let url = util.genUrl(this.smiteUrl, 'getitems', this.devId, this.authKey, this.session.id) + '/1'
-    return new Promise(function (resolve, reject) {
-      request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
-          resolve(JSON.parse(body))
-        } else {
-          reject(error)
-        }
-      })
-    })
-  }
+  
 
   getMatchDetails(matchId) {
     let url = util.genUrl(this.smiteUrl, 'getmatchdetails', this.devId, this.authKey, this.session.id) + '/' + matchId

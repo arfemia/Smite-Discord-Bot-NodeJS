@@ -1,8 +1,8 @@
 import { CacheType, CommandInteraction } from "discord.js";
-import SmiteGod from "../../models/SmiteGod";
+import SmiteItem from "../../models/SmiteItem";
 
-export interface EmbedGodOptions {
-  god: SmiteGod,
+export interface EmbedItemOptions {
+  item: SmiteItem,
   interaction: CommandInteraction<CacheType>,
   random?: boolean
 }
