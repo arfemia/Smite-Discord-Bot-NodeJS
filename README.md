@@ -8,6 +8,8 @@ Source code for the boilerplate can be found here: [Version 1.0: Discord-Bot-Nod
 ## Summary 
 This bot in its current implementation is the foundation for a Discord bot wrapper for HiRez's Smite API.
 
+![Discord Bot](https://i.gyazo.com/1be50756edd11e8281893ab7a2ac5c16.png)
+
 ---
 ## Commands
   #### Example command: `/commandName {commandParameter} {optioncommandParameter?}`
