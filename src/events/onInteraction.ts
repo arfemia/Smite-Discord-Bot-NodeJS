@@ -1,5 +1,5 @@
 import { Interaction } from "discord.js";
-import { CommandList } from "../_CommandList";
+import {  CommandList } from "../_CommandList";
 
 export const onInteraction = async (interaction: Interaction) => {
 
@@ -16,4 +16,9 @@ export const onInteraction = async (interaction: Interaction) => {
       }
     }
   }
+
+  // Ensure interaction is button press
+  // if (interaction.isButton()) {
+  //  for (const ButtonCommand of ButtonCommandList) 
+  // }
 };
