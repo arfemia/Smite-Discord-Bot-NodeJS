@@ -18,8 +18,10 @@ export default function getItem(itemArg: string, query?: boolean): {items: Smite
   const items: SmiteItem[] = []
   for (let i = 0; i < ALL_ITEMS.length; i++) {
 
+    const itemName = ALL_ITEMS[i].DeviceName.toLowerCase()
 
-    if (ALL_ITEMS[i].DeviceName.toLowerCase().includes(itemArg)) {
+    if (itemName.includes(itemArg) && !itemName.includes('(old)')) {
+
       itemFound = true
       const item = ALL_ITEMS[i]
       items.push(item)

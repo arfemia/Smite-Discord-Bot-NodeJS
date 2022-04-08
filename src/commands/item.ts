@@ -1,8 +1,9 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { MessageActionRow, MessageSelectMenu } from "discord.js";
+import { MessageActionRow, MessageButton, MessageSelectMenu } from "discord.js";
 import { Command } from "../interfaces/Command";
 import embedItem from "../utils/embeds/embedItem";
 import getItem from "../utils/smite/getItem";
+import getItemTree from "../utils/smite/getItemTree";
 
 export const item: Command = {
 
@@ -20,25 +21,32 @@ export const item: Command = {
     await interaction.deferReply();
 
     const itemArg = (interaction.options.getString("query") || 'random').toLowerCase()
-    const {items, random} = getItem(itemArg, itemArg == 'random');
-    const itemsEmbed = embedItem({item: items[0], interaction, random})
+    const { items, random } = getItem(itemArg, itemArg == 'random');
+    const itemsEmbed = embedItem({ item: items[0], interaction, random })
+    const itemTree = getItemTree(items[0])
 
-    const selectionRow = new MessageActionRow().addComponents(new MessageSelectMenu()
-      .setCustomId('item-action')
-      .setMinValues(1)
-      .setMaxValues(1)
-      .addOptions([
-        {
-          label: '1223',
-          value: 'asd'
-          
-        },
-        {
-          label: '2',
-          value: 'aaa'
-        }
-      ]))
+    const itemTreeEmbed = itemTree.map(i => embedItem({ item: i, interaction, random }))
 
-    await interaction.editReply({embeds: [itemsEmbed], components: []})
+    const row = new MessageActionRow()
+      .addComponents(
+        new MessageButton()
+          .setCustomId('/item tree')
+          .setLabel('Show full item tree')
+          .setStyle('PRIMARY')
+          ,
+      );
+    const filter = (i: any) => i.customId === '/item tree'
+    const collector = interaction.channel?.createMessageComponentCollector({ filter })
+    collector?.on('collect', async (i) => {
+      if (i.customId === '/item tree') {
+        //await i.deferReply()
+        //await i.editReply({ content: 'Showing full item tree for ' + items[0].DeviceName, components: [] })
+        await interaction.editReply({ embeds: itemTreeEmbed, components: [] })
+      }
+    })
+
+
+
+    await interaction.editReply({ embeds: [itemsEmbed,], components: [row] })
   }
 }
