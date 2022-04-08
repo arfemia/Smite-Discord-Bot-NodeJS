@@ -1,4 +1,4 @@
-import gods from "../config/smite/gods.json";
+import gods from "../config/smite/gods";
 
 export default function getRandomGod() {
 

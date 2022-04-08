@@ -5,27 +5,27 @@ import { CommandList } from "../_CommandList";
 
 export const onReady = async (BOT: Client) => {
 
-    try {
-        console.log()
-        const rest = new REST({ version: "9",  }).setToken(
-            process.env.BOT_TOKEN as string
-        );
+  try {
+    console.log()
+    const rest = new REST({ version: "9", }).setToken(
+      process.env.BOT_TOKEN as string
+    );
 
-        const commandData = CommandList.map((command) => command.data.toJSON());
-
-
-        await rest.put(
-            Routes.applicationGuildCommands(
-                BOT.user?.id || "missing id",
-                process.env.GUILD_ID as string
-            ),
-            { body: commandData }
-        );
+    const commandData = CommandList.map((command) => command.data.toJSON());
 
 
-        console.log("Discord ready!");
-    } catch (e) {
-        console.warn(e)
-    }
+    await rest.put(
+      Routes.applicationGuildCommands(
+        BOT.user?.id || "missing id",
+        process.env.GUILD_ID as string
+      ),
+      { body: commandData }
+    );
+
+
+    console.log("Discord ready!");
+  } catch (e) {
+    console.warn(e)
+  }
 
 };
