@@ -1,7 +1,7 @@
 
-import gods from '../../config/smite/gods'
-import SmiteGod from '../../interfaces/SmiteGod';
-import getRandomGod from '../getRandomGod';
+import ALL_GODS from '../../config/smite/gods'
+import SmiteGod from '../../models/SmiteGod';
+import getRandomGod from './getRandomGod';
 
 /**
  * 
@@ -13,12 +13,12 @@ export default function getGod(godArg: string): {god: SmiteGod, random: boolean}
   if (godArg === 'random') {
     return {god: getRandomGod(), random: true}
   }
-  for (let i = 0; i < gods.length; i++) {
+  for (let i = 0; i < ALL_GODS.length; i++) {
 
 
-    if (gods[i].Name.toLowerCase().includes(godArg) || gods[i].Title.toLowerCase().includes(godArg)) {
+    if (ALL_GODS[i].Name.toLowerCase().includes(godArg) || ALL_GODS[i].Title.toLowerCase().includes(godArg)) {
 
-      const god = gods[i]
+      const god = ALL_GODS[i]
       return {god, random: false};
 
 

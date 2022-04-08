@@ -1,4 +1,4 @@
-import SmiteGod from "../../interfaces/SmiteGod";
+import SmiteGod from "../../models/SmiteGod";
 import { default as _gods } from './gods.json'
-const gods: SmiteGod[] = _gods;
-export default gods;
+const ALL_GODS: SmiteGod[] = _gods;
+export default ALL_GODS;
