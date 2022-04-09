@@ -8,7 +8,7 @@ import getRandomItem from './getRandomItem';
  * @param itemArg Smite god name or title
  * @returns A smite God
  */
-export default function getItem(itemArg: string, query?: boolean): {items: SmiteItem[], random: boolean} {
+export default function getItem(itemArg: string): {items: SmiteItem[], random: boolean} {
 
   if (itemArg === 'random') {
     return {items: [getRandomItem()], random: true}
